@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const FilterWrapper = styled.div`
@@ -65,6 +65,18 @@ const FilterWrapper = styled.div`
 `;
 
 export default function Filters() {
+  // const [searchData, setSearchData] = useState("Ro");
+
+  // const filterData = searchData.filter((country) => {
+  //   if (searchData === "") {
+  //     return country;
+  //   } else if (
+  //     country.name.toLowerCase().includes(searchData.toLocaleLowerCase())
+  //   ) {
+  //     return country;
+  //   }
+  // });
+
   return (
     <FilterWrapper>
       <div>
