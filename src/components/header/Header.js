@@ -9,6 +9,7 @@ const HeaderWrapper = styled.div`
   padding: 1em 2em;
   background-color: #3d3951;
   color: white;
+  box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
   & > div {
     display: flex;
     right: 0;

@@ -10,12 +10,13 @@ const FilterWrapper = styled.div`
     align-items: center;
     display: flex;
     possition: absolute;
+    box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & > .fa-magnifying-glass {
       position: relative;
       border: 1px solid grey;
       border-right: none;
       border-radius: 4px 0 0 4px;
-      background: transparent;
+      background-color: #3d3951;
       padding: 7px;
     }
     & > input {
@@ -28,7 +29,7 @@ const FilterWrapper = styled.div`
       border: 1px solid grey;
       border-left: none;
       border-radius: 0 4px 4px 0;
-      background: transparent;
+      background-color: #3d3951;
       color: white;
       width: 160px;
       transition: width 2s;
@@ -38,7 +39,7 @@ const FilterWrapper = styled.div`
     }
   }
   & > select {
-    background: transparent;
+    background-color: #3d3951;
     margin: 0;
     padding: 0.5em 1em;
     border-radius: 3px;
@@ -48,8 +49,9 @@ const FilterWrapper = styled.div`
     color: darkgrey;
     font-weight: 700;
     cursor: pointer;
+    box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & option {
-      background-color: #091221db;
+      background-color: #3d3951;
       font-size: 1em;
       color: white;
       cursor: pointer;
@@ -66,11 +68,11 @@ export default function Filters() {
           id="search"
           type="text"
           placeholder=" Search for a country.."
-          autoComplete="off"
+          autoomplete="off"
         />
       </div>
-      <select type="select">
-        <option value="" defaultValue disabled hidden>
+      <select type="select" defaultValue={"DEFAULT"}>
+        <option value={"DEFAULT"} disabled hidden>
           Filter by Region
         </option>
         <option value="africa">Africa</option>

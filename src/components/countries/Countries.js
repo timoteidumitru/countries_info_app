@@ -18,8 +18,9 @@ const CountriesWrapper = styled.div`
     background-color: #3d3951;
     border-radius: 0 0 5px 5px;
     min-height: 240px;
+    box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & > img {
-      height: 100px;
+      height: 110px;
       width: 100%;
     }
     & > div {
