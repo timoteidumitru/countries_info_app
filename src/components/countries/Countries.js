@@ -11,20 +11,24 @@ const CountriesWrapper = styled.div`
   margin: 0 auto;
   width: 90%;
   max-width: 1280px;
-  & > div {
+  & a {
     margin: 1em;
-    min-width: 20%;
-    max-width: 20%;
-    background-color: #3d3951;
+    min-width: 175px;
+    max-width: 175px;
+    background-color: hsl(209, 23%, 22%);
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
     border-radius: 0 0 5px 5px;
     min-height: 240px;
     box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
-    & > img {
-      height: 110px;
-      width: 100%;
-    }
     & > div {
-      padding: 0.5em;
+      & > img {
+        height: 110px;
+        width: 100%;
+      }
+      & > div {
+        padding: 0.5em;
+      }
     }
   }
 `;
@@ -42,8 +46,6 @@ export default function Countries() {
         console.error("Something went wrong!", error);
       });
   }, []);
-
-  // console.log(countries[111]);
 
   return (
     <CountriesWrapper>

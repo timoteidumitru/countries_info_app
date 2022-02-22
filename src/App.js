@@ -1,14 +1,15 @@
 import "./App.css";
-import Countries from "./components/countries/Countries";
-import Filters from "./components/filters/Filters";
-import Header from "./components/header/Header";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Country from "./components/country/Country";
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Filters />
-      <Countries />
+      <Routes>
+        <Route exact path="/" element={<Home />} />
+        <Route path="/country/:id" element={<Country />} />
+      </Routes>
     </div>
   );
 }
