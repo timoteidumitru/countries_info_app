@@ -43,7 +43,7 @@ export default function Countries() {
       });
   }, []);
 
-  console.log(countries[111]);
+  // console.log(countries[111]);
 
   return (
     <CountriesWrapper>

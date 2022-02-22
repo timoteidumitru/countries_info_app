@@ -5,7 +5,9 @@ const FilterWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 1.5em 4em;
-  color: white;
+  color: hsl(0, 0%, 100%);
+  max-width: 1280px;
+  margin: 0 auto;
   & > div {
     align-items: center;
     display: flex;
@@ -30,11 +32,14 @@ const FilterWrapper = styled.div`
       border-left: none;
       border-radius: 0 4px 4px 0;
       background-color: #3d3951;
-      color: white;
+      color: hsl(0, 0%, 100%);
       width: 160px;
       transition: width 2s;
       &:hover {
         width: 200px;
+      }
+      ::placeholder {
+        color: hsl(0, 0%, 100%);
       }
     }
   }
@@ -46,14 +51,14 @@ const FilterWrapper = styled.div`
     font-size: 0.8em;
     outline: none;
     width: 12em;
-    color: darkgrey;
+    color: hsl(0, 0%, 100%);
     font-weight: 700;
     cursor: pointer;
     box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & option {
       background-color: #3d3951;
       font-size: 1em;
-      color: white;
+      color: hsl(0, 0%, 100%);
       cursor: pointer;
     }
   }

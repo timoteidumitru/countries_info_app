@@ -8,14 +8,18 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
   padding: 1em 2em;
   background-color: #3d3951;
-  color: white;
+  color: hsl(0, 0%, 100%);
   box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
+  & > h1 {
+    cursor: default;
+  }
   & > div {
     display: flex;
     right: 0;
     padding-right: 0;
     margin-right: 0;
     align-items: center;
+    cursor: pointer;
   }
 `;
 

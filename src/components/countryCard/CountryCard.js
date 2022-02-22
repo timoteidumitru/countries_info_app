@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const CountryCardWrapper = styled.div`
+  cursor: pointer;
   & > div {
     & > h3 {
       padding: 0 0 0.5em 0;
