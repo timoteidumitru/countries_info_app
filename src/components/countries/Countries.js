@@ -33,13 +33,13 @@ const CountriesWrapper = styled.div`
   }
 `;
 export default function Countries() {
-  const { searchResult, countries } = useContext(DataContext);
+  const { searchResults, countries } = useContext(DataContext);
 
   return (
     <CountriesWrapper>
-      {searchResult
-        ? searchResult
-        : countries.map((country, i) => <CountryCard data={country} key={i} />)}
+      {searchResults.map((country, i) => (
+        <CountryCard data={country} key={i} />
+      ))}
     </CountriesWrapper>
   );
 }

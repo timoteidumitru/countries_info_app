@@ -77,7 +77,7 @@ export default function Filters() {
           type="text"
           placeholder=" Search for a country.."
           autoomplete="off"
-          value={search}
+          value={search || ""}
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>

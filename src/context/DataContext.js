@@ -24,11 +24,10 @@ export const DataProvider = ({ children }) => {
         country.name?.toLowerCase().includes(search.toLowerCase()) ||
         country.capital?.toLowerCase().includes(search.toLowerCase())
     );
-
     setSearchResults(filteredResults);
   }, [countries, search]);
 
-  console.log(searchResults);
+  // console.log(countries);
 
   return (
     <DataContext.Provider
