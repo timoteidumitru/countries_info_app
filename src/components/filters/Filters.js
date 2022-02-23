@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import DataContext from "../../context/DataContext";
 
 const FilterWrapper = styled.div`
   display: flex;
@@ -65,17 +66,7 @@ const FilterWrapper = styled.div`
 `;
 
 export default function Filters() {
-  // const [searchData, setSearchData] = useState("Ro");
-
-  // const filterData = searchData.filter((country) => {
-  //   if (searchData === "") {
-  //     return country;
-  //   } else if (
-  //     country.name.toLowerCase().includes(searchData.toLocaleLowerCase())
-  //   ) {
-  //     return country;
-  //   }
-  // });
+  const { search, setSearch } = useContext(DataContext);
 
   return (
     <FilterWrapper>
@@ -86,6 +77,8 @@ export default function Filters() {
           type="text"
           placeholder=" Search for a country.."
           autoomplete="off"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
         />
       </div>
       <select type="select" defaultValue={"DEFAULT"}>

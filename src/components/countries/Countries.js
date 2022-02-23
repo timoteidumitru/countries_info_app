@@ -1,6 +1,6 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import React, { useContext } from "react";
+import DataContext from "../../context/DataContext";
 import CountryCard from "../countryCard/CountryCard";
 
 const CountriesWrapper = styled.div`
@@ -33,25 +33,13 @@ const CountriesWrapper = styled.div`
   }
 `;
 export default function Countries() {
-  const [countries, setCountries] = useState([]);
-
-  // get data from API
-  useEffect(() => {
-    axios
-      .get("https://restcountries.com/v2/all")
-      .then((res) => {
-        setCountries(res.data);
-      })
-      .catch((error) => {
-        console.error("Something went wrong!", error);
-      });
-  }, []);
+  const { searchResult, countries } = useContext(DataContext);
 
   return (
     <CountriesWrapper>
-      {countries?.map((country, i) => (
-        <CountryCard data={country} key={i} />
-      ))}
+      {searchResult
+        ? searchResult
+        : countries.map((country, i) => <CountryCard data={country} key={i} />)}
     </CountriesWrapper>
   );
 }

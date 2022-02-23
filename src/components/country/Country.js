@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Header from "../header/Header";
 
 const CountryWrapper = styled.div`
   max-width: 1280px;
@@ -12,7 +11,6 @@ const CountryWrapper = styled.div`
 export default function Country() {
   return (
     <CountryWrapper>
-      <Header />
       <div className="country-menu">
         <Link to="/" className="go-back">
           <i className="fa-solid fa-arrow-left-long"></i> Back

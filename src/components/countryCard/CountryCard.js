@@ -18,6 +18,7 @@ const CountryCardWrapper = styled.div`
 `;
 
 export default function CountryCard({ data }) {
+  // console.log(`${data.name}, ${data.capital}`);
   return (
     <Link to="/country/1">
       <CountryCardWrapper>
