@@ -13,7 +13,7 @@ const CountriesWrapper = styled.div`
   width: 90%;
   max-width: 900px;
   & a {
-    margin: 1em;
+    margin: 0.5em 1em;
     min-width: 175px;
     max-width: 175px;
     background-color: hsl(209, 23%, 22%);
