@@ -10,7 +10,7 @@ const CountriesWrapper = styled.div`
   justify-content: center;
   margin: 0 auto;
   width: 90%;
-  max-width: 1280px;
+  max-width: 900px;
   & a {
     margin: 1em;
     min-width: 175px;
@@ -33,12 +33,12 @@ const CountriesWrapper = styled.div`
   }
 `;
 export default function Countries() {
-  const { searchResults, countries } = useContext(DataContext);
+  const { searchResults } = useContext(DataContext);
 
   return (
     <CountriesWrapper>
       {searchResults.map((country, i) => (
-        <CountryCard data={country} key={i} />
+        <CountryCard data={country} key={country.name} />
       ))}
     </CountriesWrapper>
   );

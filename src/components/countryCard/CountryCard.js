@@ -19,7 +19,7 @@ const CountryCardWrapper = styled.div`
 
 export default function CountryCard({ data }) {
   return (
-    <Link to="/country/1">
+    <Link to={`/country/${data.name}`}>
       <CountryCardWrapper>
         <img src={data.flags.png} alt={data.name} />
         <div>

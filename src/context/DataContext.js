@@ -27,7 +27,7 @@ export const DataProvider = ({ children }) => {
     setSearchResults(filteredResults);
   }, [countries, search]);
 
-  // console.log(countries);
+  // console.log(searchResults);
 
   return (
     <DataContext.Provider
