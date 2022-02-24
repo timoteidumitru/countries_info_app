@@ -68,6 +68,7 @@ const FilterWrapper = styled.div`
 export default function Filters() {
   const { search, setSearch, setRegion } = useContext(DataContext);
 
+  // handle region filter
   function handleAddrTypeChange(e) {
     setRegion(e.target.value);
   }
@@ -89,7 +90,6 @@ export default function Filters() {
         type="select"
         defaultValue={"DEFAULT"}
         onChange={handleAddrTypeChange}
-        // value={region}
       >
         <option value={"DEFAULT"} disabled hidden>
           Filter by Region

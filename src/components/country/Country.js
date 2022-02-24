@@ -74,7 +74,6 @@ export default function Country() {
   let { id } = useParams();
   let foundCountry = countries?.filter((country) => country.name === id);
 
-  console.log(foundCountry[0]);
   return (
     <CountryWrapper>
       <div className="country-menu">
@@ -122,8 +121,8 @@ export default function Country() {
           <div className="country-details_three">
             <p>
               Border Countries:{" "}
-              {foundCountry[0]?.borders?.slice(0, 3).map((border) => (
-                <span>{border}</span>
+              {foundCountry[0]?.borders?.slice(0, 3).map((border, i) => (
+                <span key={i}>{border}</span>
               ))}
             </p>
           </div>
