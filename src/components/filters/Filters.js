@@ -66,7 +66,11 @@ const FilterWrapper = styled.div`
 `;
 
 export default function Filters() {
-  const { search, setSearch } = useContext(DataContext);
+  const { search, setSearch, setRegion } = useContext(DataContext);
+
+  function handleAddrTypeChange(e) {
+    setRegion(e.target.value);
+  }
 
   return (
     <FilterWrapper>
@@ -81,7 +85,12 @@ export default function Filters() {
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>
-      <select type="select" defaultValue={"DEFAULT"}>
+      <select
+        type="select"
+        defaultValue={"DEFAULT"}
+        onChange={handleAddrTypeChange}
+        // value={region}
+      >
         <option value={"DEFAULT"} disabled hidden>
           Filter by Region
         </option>

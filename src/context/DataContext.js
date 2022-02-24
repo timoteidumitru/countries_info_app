@@ -5,6 +5,7 @@ const DataContext = createContext({});
 export const DataProvider = ({ children }) => {
   const [countries, setCountries] = useState([]);
   const [search, setSearch] = useState("");
+  const [region, setRegion] = useState("");
   const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
@@ -22,10 +23,18 @@ export const DataProvider = ({ children }) => {
     const filteredResults = countries.filter(
       (country) =>
         country.name?.toLowerCase().includes(search.toLowerCase()) ||
-        country.capital?.toLowerCase().includes(search.toLowerCase())
+        country.capital?.toLowerCase().includes(search.toLowerCase()) ||
+        country.region?.toLowerCase().includes(search.toLowerCase())
     );
     setSearchResults(filteredResults);
   }, [countries, search]);
+
+  useEffect(() => {
+    const filteredResults = countries.filter((country) =>
+      country.region?.toLowerCase().includes(region.toLowerCase())
+    );
+    setSearchResults(filteredResults);
+  }, [countries, region]);
 
   // console.log(searchResults);
 
@@ -36,6 +45,8 @@ export const DataProvider = ({ children }) => {
         search,
         setSearch,
         searchResults,
+        region,
+        setRegion,
       }}
     >
       {children}
