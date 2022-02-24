@@ -7,6 +7,7 @@ export const DataProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [region, setRegion] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  // const [totalCount, setTotalCount] = useState(1);
 
   useEffect(() => {
     axios
@@ -27,6 +28,7 @@ export const DataProvider = ({ children }) => {
         country.region?.toLowerCase().includes(search.toLowerCase())
     );
     setSearchResults(filteredResults);
+    // setTotalCount(filteredResults.length);
   }, [countries, search]);
 
   useEffect(() => {
@@ -34,19 +36,20 @@ export const DataProvider = ({ children }) => {
       country.region?.toLowerCase().includes(region.toLowerCase())
     );
     setSearchResults(filteredResults);
+    // setTotalCount(filteredResults.length);
   }, [countries, region]);
 
-  // console.log(searchResults);
+  // console.log(totalCount);
 
   return (
     <DataContext.Provider
       value={{
         countries,
         search,
-        setSearch,
         searchResults,
         region,
         setRegion,
+        setSearch,
       }}
     >
       {children}

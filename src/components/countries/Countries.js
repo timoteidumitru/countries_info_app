@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import React, { useContext } from "react";
+import React, { useContext, useState, useMemo } from "react";
 import DataContext from "../../context/DataContext";
 import CountryCard from "../countryCard/CountryCard";
+import Pagination from "../pagination/Pagination";
 
 const CountriesWrapper = styled.div`
   display: flex;
@@ -32,14 +33,30 @@ const CountriesWrapper = styled.div`
     }
   }
 `;
+let PageSize = 8;
+
 export default function Countries() {
   const { searchResults } = useContext(DataContext);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentTableData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return searchResults.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, searchResults]);
 
   return (
     <CountriesWrapper>
-      {searchResults.map((country, i) => (
+      {currentTableData.map((country, i) => (
         <CountryCard data={country} key={country.name} />
       ))}
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={searchResults.length}
+        pageSize={PageSize}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </CountriesWrapper>
   );
 }
