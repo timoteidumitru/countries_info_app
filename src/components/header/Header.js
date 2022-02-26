@@ -10,6 +10,15 @@ const HeaderWrapper = styled.div`
   background-color: #3d3951;
   color: hsl(0, 0%, 100%);
   box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
+  @media (max-width: 412px) {
+    padding: 2em 1em;
+    & > h1 {
+      font-size: 1em;
+    }
+    & > div {
+      font-size: 0.85em;
+    }
+  }
   & > h1 {
     cursor: default;
   }

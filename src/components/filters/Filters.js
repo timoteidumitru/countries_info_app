@@ -63,6 +63,26 @@ const FilterWrapper = styled.div`
       cursor: pointer;
     }
   }
+  @media (max-width: 412px) {
+    display: block;
+    width: 100vw;
+    padding: 1em;
+    margin-top: 3em;
+
+    & > div {
+      & > .search-input_icon {
+        padding: 0.82em;
+      }
+      & > .search-input {
+        width: 100%;
+        padding: 1em;
+      }
+    }
+    & > select {
+      margin-top: 2em;
+      padding: 1.2em;
+    }
+  }
 `;
 
 export default function Filters() {
@@ -76,9 +96,10 @@ export default function Filters() {
   return (
     <FilterWrapper>
       <div>
-        <i className="fa-solid fa-magnifying-glass"></i>
+        <i className="fa-solid fa-magnifying-glass search-input_icon"></i>
         <input
           id="search"
+          className="search-input"
           type="text"
           placeholder=" Search for a country.."
           autoomplete="off"

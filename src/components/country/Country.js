@@ -67,6 +67,37 @@ const CountryWrapper = styled.div`
       }
     }
   }
+  @media (max-width: 412px) {
+    & .country-menu {
+      padding: 3em 2em;
+    }
+    & .country-content {
+      display: block;
+      max-width: 100vw;
+      padding: 1.5em;
+      padding-top: 1em;
+      & > img {
+        width: 100%;
+        height: 250px;
+      }
+      & > .country-details {
+        display: block;
+        width: 100%;
+        padding: 1em 0.2em;
+        & > .country-details_one,
+        .country-details_two,
+        .country-details_three {
+          width: 100%;
+          margin: 0;
+          padding: 0;
+          padding-top: 1.8em;
+          & > p {
+            line-height: 2;
+          }
+        }
+      }
+    }
+  }
 `;
 
 export default function Country() {

@@ -32,6 +32,16 @@ const CountriesWrapper = styled.div`
       }
     }
   }
+  @media (max-width: 412px) {
+    & a {
+      min-width: 65vw;
+      max-width: 65vw;
+      & div {
+        min-width: 65vw;
+        max-width: 65vw;
+      }
+    }
+  }
 `;
 let PageSize = 8;
 
