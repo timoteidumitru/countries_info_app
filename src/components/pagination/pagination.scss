@@ -4,6 +4,8 @@
   position: absolute;
   top: 6.5em;
   padding-left: 1.5em;
+  background-color: darkcyan;
+  border-radius: 1em;
 
   .pagination-item {
     padding: 0 12px;
@@ -36,9 +38,7 @@
     .arrow {
       &::before {
         position: relative;
-        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
         content: "";
-        /* By using an em scale, the arrows will size with the font */
         display: inline-block;
         width: 0.4em;
         height: 0.4em;
@@ -68,5 +68,12 @@
         cursor: default;
       }
     }
+  }
+}
+@media (max-width: 412px) {
+  .pagination-container {
+    border-radius: 0;
+    padding-left: 0;
+    width: 100%;
   }
 }

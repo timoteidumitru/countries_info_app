@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import DataContext from "../../context/DataContext";
 
-const CountryCardWrapper = styled.div`
+const CountryCardWrapper = styled.div.attrs((props) => ({
+  theme: props.theme || "",
+}))`
   cursor: pointer;
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
   & > div {
     & > p {
       font-size: 0.9em;
@@ -22,9 +27,10 @@ const HeaderText = styled.h3.attrs((props) => ({
 `;
 
 export default function CountryCard({ data }) {
+  const { theme } = useContext(DataContext);
   return (
     <Link to={`/country/${data.name}`}>
-      <CountryCardWrapper>
+      <CountryCardWrapper theme={theme}>
         <img src={data.flags.png} alt={data.name} />
         <div>
           <HeaderText textSize={data.name.length}>{data.name}</HeaderText>

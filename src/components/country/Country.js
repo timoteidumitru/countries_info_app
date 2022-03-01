@@ -3,23 +3,31 @@ import DataContext from "../../context/DataContext";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-const CountryWrapper = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
+const CountryWrapper = styled.div.attrs((props) => ({
+  theme: props.theme || "",
+}))`
+  min-height: 89.5vh;
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
   & .country-menu {
+    max-width: 1280px;
+    margin: 0 auto;
     padding: 3em 4em;
     & > a {
-      background-color: #3d3951;
-      color: hsl(0, 0%, 100%);
       box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
       padding: 0.5em 1.7em;
       text-decoration: none;
       border-radius: 5px;
+      color: ${(props) => props.theme.text};
+      background-color: ${(props) => props.theme.elements};
     }
   }
   & .country-content {
+    max-width: 1280px;
+    margin: 0 auto;
     display: flex;
-    padding: 3em;
+    padding: 3em 1.5em;
+    min-height: 65vh;
     & img {
       width: 600px;
     }
@@ -54,14 +62,14 @@ const CountryWrapper = styled.div`
         margin: 0 auto;
         & p {
           & > span {
-            color: darkgrey;
             padding: 0.2em 1em;
             margin: 0 0.4em;
             box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
-            background-color: hsl(209, 23%, 22%);
             border-radius: 3px;
             font-size: 0.8em;
             cursor: pointer;
+            color: ${(props) => props.theme.text};
+            background-color: ${(props) => props.theme.elements};
           }
         }
       }
@@ -101,12 +109,12 @@ const CountryWrapper = styled.div`
 `;
 
 export default function Country() {
-  const { countries } = useContext(DataContext);
+  const { countries, theme } = useContext(DataContext);
   let { id } = useParams();
   let foundCountry = countries?.filter((country) => country.name === id);
 
   return (
-    <CountryWrapper>
+    <CountryWrapper theme={theme}>
       <div className="country-menu">
         <Link to="/" className="go-back">
           <i className="fa-solid fa-arrow-left-long"></i> Back

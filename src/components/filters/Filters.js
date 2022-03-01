@@ -67,13 +67,14 @@ const FilterWrapper = styled.div.attrs((props) => ({
   }
   @media (max-width: 412px) {
     display: block;
-    width: 100vw;
+    width: 96vw;
     padding: 1em;
-    margin-top: 3em;
+    padding-top: 4em;
+    margin: 0;
 
     & > div {
       & > .search-input_icon {
-        padding: 0.82em;
+        padding: 0.9em;
       }
       & > .search-input {
         width: 100%;

@@ -4,7 +4,9 @@ import DataContext from "../../context/DataContext";
 import CountryCard from "../countryCard/CountryCard";
 import Pagination from "../pagination/Pagination";
 
-const CountriesWrapper = styled.div`
+const CountriesWrapper = styled.div.attrs((props) => ({
+  theme: props.theme || "",
+}))`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -12,15 +14,16 @@ const CountriesWrapper = styled.div`
   margin: 0 auto;
   width: 90%;
   max-width: 900px;
+  background-color: ${(props) => props.theme.background};
   & a {
     margin: 0.5em 1em;
     min-width: 175px;
     max-width: 175px;
-    background-color: hsl(209, 23%, 22%);
-    color: hsl(0, 0%, 100%);
+    background-color: ${(props) => props.theme.background};
+    color: ${(props) => props.theme.text};
     text-decoration: none;
     border-radius: 0 0 5px 5px;
-    min-height: 240px;
+    min-height: 250px;
     box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & > div {
       & > img {
@@ -46,7 +49,7 @@ const CountriesWrapper = styled.div`
 let PageSize = 8;
 
 export default function Countries() {
-  const { searchResults } = useContext(DataContext);
+  const { searchResults, theme } = useContext(DataContext);
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentTableData = useMemo(() => {
@@ -56,7 +59,7 @@ export default function Countries() {
   }, [currentPage, searchResults]);
 
   return (
-    <CountriesWrapper>
+    <CountriesWrapper theme={theme}>
       {currentTableData.map((country) => (
         <CountryCard data={country} key={country.name} />
       ))}

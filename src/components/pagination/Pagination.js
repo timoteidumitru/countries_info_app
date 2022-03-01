@@ -2,6 +2,7 @@ import React from "react";
 import classnames from "classnames";
 import { usePagination, DOTS } from "../../hooks/usePagination";
 import "./pagination.scss";
+
 const Pagination = (props) => {
   const {
     onPageChange,
@@ -18,8 +19,6 @@ const Pagination = (props) => {
     siblingCount,
     pageSize,
   });
-
-  // If there are less than 2 times in pagination range we shall not render the component
   if (currentPage === 0 || paginationRange.length < 2) {
     return null;
   }
@@ -47,7 +46,6 @@ const Pagination = (props) => {
         <div className="arrow left" />
       </li>
       {paginationRange.map((pageNumber, i) => {
-        // If the pageItem is a DOT, render the DOTS unicode character
         if (pageNumber === DOTS) {
           return (
             <li className="pagination-item dots" key={i}>
