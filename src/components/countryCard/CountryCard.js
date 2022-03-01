@@ -5,9 +5,6 @@ import styled from "styled-components";
 const CountryCardWrapper = styled.div`
   cursor: pointer;
   & > div {
-    & > h3 {
-      padding: 0 0 0.5em 0;
-    }
     & > p {
       font-size: 0.9em;
       & > span {
@@ -17,13 +14,20 @@ const CountryCardWrapper = styled.div`
   }
 `;
 
+const HeaderText = styled.h3.attrs((props) => ({
+  textSize: props.textSize || "19",
+}))`
+  font-size: ${(props) => (props?.textSize > 18 ? "0.9em" : "1.17em")};
+  padding: ${(props) => (props?.textSize > 18 ? "0" : "0 0 0.5em 0")};
+`;
+
 export default function CountryCard({ data }) {
   return (
     <Link to={`/country/${data.name}`}>
       <CountryCardWrapper>
         <img src={data.flags.png} alt={data.name} />
         <div>
-          <h3>{data.name}</h3>
+          <HeaderText textSize={data.name.length}>{data.name}</HeaderText>
           <p>
             Population: <span>{data.population.toLocaleString()}</span>
           </p>

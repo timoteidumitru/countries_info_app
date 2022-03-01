@@ -57,7 +57,7 @@ export default function Countries() {
 
   return (
     <CountriesWrapper>
-      {currentTableData.map((country, i) => (
+      {currentTableData.map((country) => (
         <CountryCard data={country} key={country.name} />
       ))}
       <Pagination
