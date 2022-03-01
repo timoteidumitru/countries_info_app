@@ -20,7 +20,7 @@ const FilterWrapper = styled.div`
       border-right: none;
       border-radius: 4px 0 0 4px;
       background-color: #3d3951;
-      padding: 7px;
+      padding: 7.7px;
     }
     & > input {
       background: #091221db;
