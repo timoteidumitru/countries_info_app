@@ -10,10 +10,10 @@ const HeaderWrapper = styled.div.attrs((props) => ({
   display: flex;
   justify-content: space-between;
   padding: 1em 2em;
-  background-color: ${(props) => props.theme.background};
+  background-color: ${(props) => props.theme.elements};
   color: ${(props) => props.theme.text};
   font-weight: ${(props) => props.theme.fontWeight};
-  box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
+  box-shadow: 5px 5px 5px ${(props) => props.theme.text};
   @media (max-width: 412px) {
     padding: 2em 1em;
     & > h1 {

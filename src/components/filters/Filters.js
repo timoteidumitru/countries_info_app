@@ -2,11 +2,14 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import DataContext from "../../context/DataContext";
 
-const FilterWrapper = styled.div`
+const FilterWrapper = styled.div.attrs((props) => ({
+  theme: props.theme || "",
+}))`
   display: flex;
   justify-content: space-between;
   padding: 1.5em 4em;
-  color: hsl(0, 0%, 100%);
+  background-color: ${(props) => props.theme.background};
+  color: ${(props) => props.theme.text};
   max-width: 1280px;
   margin: 0 auto;
   & > div {
@@ -16,50 +19,49 @@ const FilterWrapper = styled.div`
     box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & > .fa-magnifying-glass {
       position: relative;
-      border: 1px solid grey;
+      border: none;
       border-right: none;
       border-radius: 4px 0 0 4px;
-      background-color: #3d3951;
-      padding: 7.7px;
+      background-color: ${(props) => props.theme.elements};
+      padding: 14.8px;
     }
     & > input {
-      background: #091221db;
       margin: 0;
-      border: 0;
-      padding: 0.5em 1em;
+      padding: 1em 2em;
       border-radius: 3px;
       outline: none;
-      border: 1px solid grey;
+      border: none;
       border-left: none;
       border-radius: 0 4px 4px 0;
-      background-color: #3d3951;
-      color: hsl(0, 0%, 100%);
-      width: 160px;
+      background-color: ${(props) => props.theme.elements};
+      color: ${(props) => props.theme.text};
+      width: 180px;
       transition: width 2s;
       &:hover {
-        width: 200px;
+        width: 220px;
       }
       ::placeholder {
-        color: hsl(0, 0%, 100%);
+        color: ${(props) => props.theme.text};
       }
     }
   }
   & > select {
-    background-color: #3d3951;
+    background-color: ${(props) => props.theme.elements};
     margin: 0;
-    padding: 0.5em 1em;
+    padding: 1em 2em;
     border-radius: 3px;
+    border: none;
     font-size: 0.8em;
     outline: none;
-    width: 12em;
-    color: hsl(0, 0%, 100%);
+    width: 13em;
+    color: ${(props) => props.theme.text};
     font-weight: 700;
     cursor: pointer;
     box-shadow: 5px 5px 5px rgb(27 21 21 / 60%);
     & option {
-      background-color: #3d3951;
+      background-color: ${(props) => props.theme.elements};
       font-size: 1em;
-      color: hsl(0, 0%, 100%);
+      color: ${(props) => props.theme.text};
       cursor: pointer;
     }
   }
@@ -86,7 +88,7 @@ const FilterWrapper = styled.div`
 `;
 
 export default function Filters() {
-  const { search, setSearch, setRegion } = useContext(DataContext);
+  const { search, setSearch, setRegion, theme } = useContext(DataContext);
 
   // handle region filter
   function handleAddrTypeChange(e) {
@@ -94,7 +96,7 @@ export default function Filters() {
   }
 
   return (
-    <FilterWrapper>
+    <FilterWrapper theme={theme}>
       <div>
         <i className="fa-solid fa-magnifying-glass search-input_icon"></i>
         <input
