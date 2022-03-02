@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { DataProvider } from "./context/DataContext";
 import Header from "./components/header/Header";
 import Home from "./pages/Home";
@@ -9,11 +9,13 @@ function App() {
   return (
     <div className="App">
       <DataProvider>
-        <Header />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/country/:id" element={<Country />} />
-        </Routes>
+        <BrowserRouter basename="/countries_info_app/">
+          <Header />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/country/:id" element={<Country />} />
+          </Routes>
+        </BrowserRouter>
       </DataProvider>
     </div>
   );
