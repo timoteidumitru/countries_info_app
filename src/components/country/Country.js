@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import DataContext from "../../context/DataContext";
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
+import Header from "../header/Header";
 
 const CountryWrapper = styled.div.attrs((props) => ({
   theme: props.theme || "",
@@ -114,59 +115,62 @@ export default function Country() {
   let foundCountry = countries?.filter((country) => country.name === id);
 
   return (
-    <CountryWrapper theme={theme}>
-      <div className="country-menu">
-        <Link to="/" className="go-back">
-          <i className="fa-solid fa-arrow-left-long"></i> Back
-        </Link>
-      </div>
-      <div className="country-content">
-        <img src={foundCountry[0]?.flags.png} alt={foundCountry[0]?.name} />
-        <div className="country-details">
-          <div className="country-details_one">
-            <h2>{foundCountry[0]?.name}</h2>
-            <p>
-              Native name: <span>{foundCountry[0]?.nativeName}</span>
-            </p>
-            <p>
-              Population:{" "}
-              <span>{foundCountry[0]?.population.toLocaleString()}</span>
-            </p>
-            <p>
-              Region: <span>{foundCountry[0]?.region}</span>
-            </p>
-            <p>
-              Sub Region: <span>{foundCountry[0]?.subregion}</span>
-            </p>
-            <p>
-              Capital: <span>{foundCountry[0]?.capital}</span>
-            </p>
-          </div>
-          <div className="country-details_two">
-            <p>
-              Top Level Domain: <span>{foundCountry[0]?.topLevelDomain}</span>
-            </p>
-            <p>
-              Currencies: <span>{foundCountry[0]?.currencies[0].name}</span>
-            </p>
-            <p>
-              Languages:{" "}
-              <span>
-                {foundCountry[0]?.languages[0].name},{" "}
-                {foundCountry[0]?.languages[0].nativeName}
-              </span>
-            </p>
-          </div>
-          <div className="country-details_three">
-            <p>
-              Border Countries:{" "}
-              {foundCountry[0]?.borders?.slice(0, 3).map((border, i) => (
-                <span key={i}>{border}</span>
-              ))}
-            </p>
+    <>
+      <Header />
+      <CountryWrapper theme={theme}>
+        <div className="country-menu">
+          <Link to="/" className="go-back">
+            <i className="fa-solid fa-arrow-left-long"></i> Back
+          </Link>
+        </div>
+        <div className="country-content">
+          <img src={foundCountry[0]?.flags.png} alt={foundCountry[0]?.name} />
+          <div className="country-details">
+            <div className="country-details_one">
+              <h2>{foundCountry[0]?.name}</h2>
+              <p>
+                Native name: <span>{foundCountry[0]?.nativeName}</span>
+              </p>
+              <p>
+                Population:{" "}
+                <span>{foundCountry[0]?.population.toLocaleString()}</span>
+              </p>
+              <p>
+                Region: <span>{foundCountry[0]?.region}</span>
+              </p>
+              <p>
+                Sub Region: <span>{foundCountry[0]?.subregion}</span>
+              </p>
+              <p>
+                Capital: <span>{foundCountry[0]?.capital}</span>
+              </p>
+            </div>
+            <div className="country-details_two">
+              <p>
+                Top Level Domain: <span>{foundCountry[0]?.topLevelDomain}</span>
+              </p>
+              <p>
+                Currencies: <span>{foundCountry[0]?.currencies[0].name}</span>
+              </p>
+              <p>
+                Languages:{" "}
+                <span>
+                  {foundCountry[0]?.languages[0].name},{" "}
+                  {foundCountry[0]?.languages[0].nativeName}
+                </span>
+              </p>
+            </div>
+            <div className="country-details_three">
+              <p>
+                Border Countries:{" "}
+                {foundCountry[0]?.borders?.slice(0, 3).map((border, i) => (
+                  <span key={i}>{border}</span>
+                ))}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-    </CountryWrapper>
+      </CountryWrapper>
+    </>
   );
 }
