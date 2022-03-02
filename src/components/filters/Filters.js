@@ -105,7 +105,7 @@ export default function Filters() {
           className="search-input"
           type="text"
           placeholder=" Search for a country.."
-          autoomplete="off"
+          autoComplete="off"
           value={search || ""}
           onChange={(e) => setSearch(e.target.value)}
         />
