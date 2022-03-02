@@ -9,10 +9,10 @@ function App() {
   return (
     <div className="App">
       <DataProvider>
-        <BrowserRouter basename="/countries_info_app/">
+        <BrowserRouter>
           <Header />
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/country/:id" element={<Country />} />
           </Routes>
         </BrowserRouter>
