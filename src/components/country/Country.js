@@ -120,6 +120,7 @@ export default function Country() {
       <CountryWrapper theme={theme}>
         <div className="country-menu">
           <Link to="/" className="go-back">
+            {/* <Link to="/countries_info_app/" className="go-back"> */}
             <i className="fa-solid fa-arrow-left-long"></i> Back
           </Link>
         </div>

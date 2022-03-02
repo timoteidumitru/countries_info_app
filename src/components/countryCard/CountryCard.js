@@ -30,6 +30,7 @@ export default function CountryCard({ data }) {
   const { theme } = useContext(DataContext);
   return (
     <Link to={`/country/${data.name}`}>
+      {/* <Link to={`/countries_info_app/country/${data.name}`}> */}
       <CountryCardWrapper theme={theme}>
         <img src={data.flags.png} alt={data.name} />
         <div>
