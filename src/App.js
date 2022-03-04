@@ -9,10 +9,10 @@ function App() {
     <div className="App">
       <DataProvider>
         <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/country/:id" element={<Country />} />
-          {/* <Route path="/countries_info_app/" exact element={<Home />} />
-          <Route path="/countries_info_app/country/:id" element={<Country />} /> */}
+          {/* <Route path="/" exact element={<Home />} />
+          <Route path="/country/:id" element={<Country />} /> */}
+          <Route path="/countries_info_app/" exact element={<Home />} />
+          <Route path="/countries_info_app/country/:id" element={<Country />} />
         </Routes>
       </DataProvider>
     </div>
