@@ -15,6 +15,7 @@
   - Dynamic change of style base of content displayed
   - Numbers fortatting
 
+- Hooks / Custom Hooks
 - Font Awesome for icons
 - Axios for http request to API
 - Styled Components with SASS for style

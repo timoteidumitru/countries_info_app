@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 import axios from "axios";
+import { useStickyState } from "../hooks/useStickyState";
 const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
@@ -8,7 +9,7 @@ export const DataProvider = ({ children }) => {
   const [region, setRegion] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [theme, setTheme] = useState({});
-  const [changeTheme, setChangeTheme] = useState("darkMode");
+  const [changeTheme, setChangeTheme] = useStickyState("darkMode", "themes");
 
   useEffect(() => {
     axios
